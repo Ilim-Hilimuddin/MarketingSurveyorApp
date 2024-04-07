@@ -1,27 +1,24 @@
 # PROJEK TUGAS BESAR MATA KULIAH WEB LANJUTAN
-
 ## Petunjuk
 
-1. pertama kali buat projek lakukan 
-pada teminal ketikan : git clone  https://github.com/Ilim-Hilimuddin/MarketingSurveyorApp
-
-2. Kerjakan sesuai jobdesk pada projek (buka github, cari projek)
+1. pertama kali buat projek lakukan : 
+- buat folder baru dengan nama TB_WEB_LANJUT
+- masuk ke folder tersebut
+- klik kanan dan pilih gitbash here (pastikan sudah install gitbash)
+- Ketikan perintah pada gitbash yang terbuka sebagai berikut
+- git clone  https://github.com/Ilim-Hilimuddin/MarketingSurveyorApp
+- cd MarketingSurveyorApp
+- composer install  (pastikan sudah install composer)
+- code .
+2. Kerjakan tugas sesuai jobdesk pada projek (buka github, cari projek)
 3. Setelah selesai mengerjakan lakukan hal berikut :
-Jalankan pada terminal:
-
+Jalankan pada terminal di vscode (CTRL + ~) ~ ada disamping angka 1:
 - git branch nama-nim  {enter)
-
 - git checkout nama-nim
-
 - git add .
-
 - git commit -m "keterangan (mis: pembuatan halaman login by ferry)"
-
 - git push -u origin nama-nim
-
 - buka github > klik compare & pull request
-
 - Laporkan jika sudah selesai ke grup kelompok-> Selesai
-
-5. Lakukan git pull jika ada perubahan pada repositori
+4. Lakukan git pull jika ada perubahan pada repositori
 
