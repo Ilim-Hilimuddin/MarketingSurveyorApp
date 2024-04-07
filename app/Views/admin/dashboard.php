@@ -1,4 +1,4 @@
-<?= $this->extend('layouts/index'); ?>
+<?= $this->extend('layouts/admin/default'); ?>
 
 <?= $this->section('content'); ?>
 <!-- Content Header (Page header) -->
