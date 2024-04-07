@@ -61,11 +61,11 @@
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
-      <div class="d-flex col-md-12 mt-2">
-        <div class="col-md-3">
-          <img src="<?= base_url() ?>/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="nav-icon img-circle elevation-3 w-100" style="opacity: .8">
+      <div class="d-flex col-md-12 mt-2" style="margin-left: -20px;">
+        <div class="col-md-5 text-center">
+          <img src="<?= base_url() ?>/dist/img/logo-abadi-utama.png" alt="AdminLTE Logo" class="nav-icon img-circle w-50">
         </div>
-        <div class="col-md-9">
+        <div class="col-md-8" style="margin-left: -25px;">
           <p class="brand-text font-weight-bold text-yellow">E-MARKET SURVEYOR</p>
           <p class="brand-text font-weight-light text-light" style="margin-top: -10px;">PT.ABADI SURVEYOR</p>
         </div>
@@ -88,97 +88,6 @@
               </a>
             </li>
 
-            <li class="nav-header">DATA MANAGER</li>
-            <div class="brand-link" style="margin-top: -20px;"></div>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="fas fa-users nav-icon"></i>
-                <p>
-                  Marketing
-                  <i class="right fas fa-angle-left"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="../layout/top-nav.html" class="nav-link">
-                    <i class="fas fa-user-plus nav-icon"></i>
-                    <p>Tambah Marketing</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../layout/top-nav.html" class="nav-link">
-                    <i class="fas fa-pen nav-icon"></i>
-                    <p>Edit Marketing</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../layout/top-nav.html" class="nav-link">
-                    <i class="fas fa-user-slash nav-icon"></i>
-                    <p>Hapus Marketing</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="fas fa-boxes nav-icon"></i>
-                <p>
-                  Barang
-                  <i class="right fas fa-angle-left"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="../layout/top-nav.html" class="nav-link">
-                    <i class="fas fa-plus nav-icon"></i>
-                    <p>Tambah Barang</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../layout/top-nav.html" class="nav-link">
-                    <i class="fas fa-pen nav-icon"></i>
-                    <p>Edit Barang</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../layout/top-nav.html" class="nav-link">
-                    <i class="fas fa-trash nav-icon"></i>
-                    <p>Hapus Barang</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="fas fa-map nav-icon"></i>
-                <p>
-                  Lokasi
-                  <i class="right fas fa-angle-left"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="../layout/top-nav.html" class="nav-link">
-                    <i class="fas fa-plus nav-icon"></i>
-                    <p>Tambah Lokasi</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../layout/top-nav.html" class="nav-link">
-                    <i class="fas fa-pen nav-icon"></i>
-                    <p>Edit Lokasi</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../layout/top-nav.html" class="nav-link">
-                    <i class="fas fa-trash nav-icon"></i>
-                    <p>Hapus Lokasi</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
             <li class="nav-header">TRANSAKSI</li>
             <div class="brand-link" style="margin-top: -20px;"></div>
             <li class="nav-item">
@@ -186,9 +95,31 @@
               <a href="#" class="nav-link">
                 <i class="fas fa-calendar nav-icon"></i>
                 <p>
-                  Data Transaksi
+                  Data Survey
+                  <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="../layout/top-nav.html" class="nav-link">
+                    <i class="fas fa-plus nav-icon"></i>
+                    <p>Tambah Data Survey</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="../layout/top-nav.html" class="nav-link">
+                    <i class="fas fa-pen nav-icon"></i>
+                    <p>Edit Data Survey</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="../layout/top-nav.html" class="nav-link">
+                    <i class="fas fa-trash nav-icon"></i>
+                    <p>Hapus Data Survey</p>
+                  </a>
+                </li>
+              </ul>
+
             </li>
             <li class="nav-item">
               <a href="#" class="nav-link">
