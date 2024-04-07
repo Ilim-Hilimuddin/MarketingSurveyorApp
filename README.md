@@ -6,7 +6,7 @@
 - masuk ke folder tersebut
 - klik kanan dan pilih gitbash here (pastikan sudah install gitbash)
 - Ketikan perintah pada gitbash yang terbuka sebagai berikut
-- git clone  https://github.com/Ilim-Hilimuddin/MarketingSurveyorApp
+- git clone https://github.com/Ilim-Hilimuddin/MarketingSurveyorApp.git
 - cd MarketingSurveyorApp
 - composer install  (pastikan sudah install composer)
 - code .
