@@ -10,6 +10,10 @@
   - cd MarketingSurveyorApp
   - composer install  (pastikan sudah install composer)
   - code . (perhatikan setelah code spasi dan titik)
+  - Buka terminal di vscode CTRL + ~) ~ ada disamping angka 1 lalu ketikan:
+  - php spark serve
+  - buka browser ketikkan : http://localhost:8080/admin/dashboard
+  - JIka muncul tampilan dashboard berati instalasi berhasil dengan baik.
 2. Kerjakan tugas sesuai jobdesk pada projek (buka github, cari projek)
 3. Setelah selesai mengerjakan lakukan hal berikut :
   - Jalankan pada terminal di vscode (CTRL + ~) ~ ada disamping angka 1:
