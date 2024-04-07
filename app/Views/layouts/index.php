@@ -61,11 +61,16 @@
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
-      <a href="../../index3.html" class="brand-link">
-        <img src="<?= base_url() ?>/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">PT ABC</span>
-      </a>
-
+      <div class="d-flex col-md-12 mt-2">
+        <div class="col-md-3">
+          <img src="<?= base_url() ?>/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="nav-icon img-circle elevation-3 w-100" style="opacity: .8">
+        </div>
+        <div class="col-md-9">
+          <p class="brand-text font-weight-bold text-yellow">E-MARKET SURVEYOR</p>
+          <p class="brand-text font-weight-light text-light" style="margin-top: -10px;">PT.ABADI SURVEYOR</p>
+        </div>
+      </div>
+      <div class="brand-link" style="margin-top: -25px;"></div>
       <!-- Sidebar -->
       <div class="sidebar">
 
@@ -82,7 +87,9 @@
                 </p>
               </a>
             </li>
+
             <li class="nav-header">DATA MANAGER</li>
+            <div class="brand-link" style="margin-top: -20px;"></div>
             <li class="nav-item">
               <a href="#" class="nav-link">
                 <i class="fas fa-users nav-icon"></i>
@@ -172,8 +179,47 @@
                 </li>
               </ul>
             </li>
-
             <li class="nav-header">TRANSAKSI</li>
+            <div class="brand-link" style="margin-top: -20px;"></div>
+            <li class="nav-item">
+
+              <a href="#" class="nav-link">
+                <i class="fas fa-calendar nav-icon"></i>
+                <p>
+                  Data Transaksi
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="fas fa-file-export nav-icon"></i>
+                <p>
+                  Laporan
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="../layout/top-nav.html" class="nav-link">
+                    <i class="fas fa-file-excel nav-icon"></i>
+                    <p>Cetak Data Transaksi</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="../layout/top-nav.html" class="nav-link">
+                    <i class="fas fa-file-pdf nav-icon"></i>
+                    <p>Cetak Bukti Transaksi</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <div class="brand-link"></div>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="fas fa-sign-out-alt nav-icon"></i>
+                <p> Logout</p>
+              </a>
+            </li>
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
