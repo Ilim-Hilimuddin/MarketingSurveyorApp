@@ -65,7 +65,7 @@
         <div class="col-md-5 text-center">
           <img src="<?= base_url() ?>/dist/img/logo-abadi-utama.png" alt="AdminLTE Logo" class="nav-icon img-circle w-50">
         </div>
-        <div class="col-md-12" style="margin-left: -25px;">
+        <div class="col-md-9" style="margin-left: -25px;">
           <p class="brand-text font-weight-bold text-yellow">E-MARKETING SURVEYOR</p>
           <p class="brand-text font-weight-light text-light" style="margin-top: -10px;">PT.ABADI SURVEYOR</p>
         </div>
@@ -80,7 +80,7 @@
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
             <li class="nav-item">
-              <a href="<?= base_url() ?>/dashboard" class="nav-link">
+              <a href="<?= base_url() ?>admin/dashboard" class="nav-link">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>
                   Dashboard
@@ -94,27 +94,21 @@
               <a href="#" class="nav-link">
                 <i class="fas fa-users nav-icon"></i>
                 <p>
-                  Marketing
+                  Data User
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="../layout/top-nav.html" class="nav-link">
-                    <i class="fas fa-user-plus nav-icon"></i>
-                    <p>Tambah Marketing</p>
+                  <a href="<?= base_url() ?>admin/admin" class="nav-link">
+                    <i class="fas fa-file-excel nav-icon"></i>
+                    <p>Admin</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="../layout/top-nav.html" class="nav-link">
-                    <i class="fas fa-pen nav-icon"></i>
-                    <p>Edit Marketing</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../layout/top-nav.html" class="nav-link">
-                    <i class="fas fa-user-slash nav-icon"></i>
-                    <p>Hapus Marketing</p>
+                  <a href="<?= base_url() ?>admin/marketing" class="nav-link">
+                    <i class="fas fa-file-pdf nav-icon"></i>
+                    <p>Marketing</p>
                   </a>
                 </li>
               </ul>
@@ -124,60 +118,18 @@
               <a href="#" class="nav-link">
                 <i class="fas fa-boxes nav-icon"></i>
                 <p>
-                  Barang
-                  <i class="right fas fa-angle-left"></i>
+                  Data Barang
                 </p>
               </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="../layout/top-nav.html" class="nav-link">
-                    <i class="fas fa-plus nav-icon"></i>
-                    <p>Tambah Barang</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../layout/top-nav.html" class="nav-link">
-                    <i class="fas fa-pen nav-icon"></i>
-                    <p>Edit Barang</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../layout/top-nav.html" class="nav-link">
-                    <i class="fas fa-trash nav-icon"></i>
-                    <p>Hapus Barang</p>
-                  </a>
-                </li>
-              </ul>
             </li>
 
             <li class="nav-item">
               <a href="#" class="nav-link">
                 <i class="fas fa-map nav-icon"></i>
                 <p>
-                  Lokasi
-                  <i class="right fas fa-angle-left"></i>
+                  Data Lokasi
                 </p>
               </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="../layout/top-nav.html" class="nav-link">
-                    <i class="fas fa-plus nav-icon"></i>
-                    <p>Tambah Lokasi</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../layout/top-nav.html" class="nav-link">
-                    <i class="fas fa-pen nav-icon"></i>
-                    <p>Edit Lokasi</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../layout/top-nav.html" class="nav-link">
-                    <i class="fas fa-trash nav-icon"></i>
-                    <p>Hapus Lokasi</p>
-                  </a>
-                </li>
-              </ul>
             </li>
             <li class="nav-header">TRANSAKSI</li>
             <div class="brand-link" style="margin-top: -20px;"></div>

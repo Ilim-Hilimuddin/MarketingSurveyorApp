@@ -12,4 +12,12 @@ class Admin extends BaseController
     {
         return view('Admin/dashboard');
     }
+    public function admin(): string
+    {
+        return view('Admin/admin');
+    }
+    public function marketing(): string
+    {
+        return view('Admin/marketing');
+    }
 }
