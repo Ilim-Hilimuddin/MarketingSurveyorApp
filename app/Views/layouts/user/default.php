@@ -65,7 +65,7 @@
         <div class="col-md-5 text-center">
           <img src="<?= base_url() ?>/dist/img/logo-abadi-utama.png" alt="AdminLTE Logo" class="nav-icon img-circle w-50">
         </div>
-        <div class="col-md-12" style="margin-left: -25px;">
+        <div class="col-md-9" style="margin-left: -25px;">
           <p class="brand-text font-weight-bold text-yellow">E-MARKETING SURVEYOR</p>
           <p class="brand-text font-weight-light text-light" style="margin-top: -10px;">PT.ABADI SURVEYOR</p>
         </div>
