@@ -10,6 +10,10 @@ class User extends BaseController
     }
     public function dashboard(): string
     {
-        return view('user/dashboard');
+        return view('User/dashboard');
+    }
+    public function survey(): string
+    {
+        return view('User/survey');
     }
 }

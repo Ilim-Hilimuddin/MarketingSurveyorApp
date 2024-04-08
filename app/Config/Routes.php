@@ -9,3 +9,4 @@ $routes->get('/', 'Login::index');
 $routes->get('/admin', 'Admin::index');
 $routes->get('/admin/dashboard', 'Admin::dashboard');
 $routes->get('/user/dashboard', 'User::dashboard');
+$routes->get('/user/survey', 'User::survey');

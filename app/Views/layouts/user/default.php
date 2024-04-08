@@ -80,7 +80,7 @@
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
             <li class="nav-item">
-              <a href="<?= base_url() ?>/dashboard" class="nav-link">
+              <a href="<?= base_url() ?>user/dashboard" class="nav-link">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>
                   Dashboard
@@ -91,35 +91,12 @@
             <li class="nav-header">TRANSAKSI</li>
             <div class="brand-link" style="margin-top: -20px;"></div>
             <li class="nav-item">
-
-              <a href="#" class="nav-link">
+              <a href="<?= base_url(); ?>user/survey" class="nav-link">
                 <i class="fas fa-calendar nav-icon"></i>
                 <p>
                   Data Survey
-                  <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="../layout/top-nav.html" class="nav-link">
-                    <i class="fas fa-plus nav-icon"></i>
-                    <p>Tambah Data Survey</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../layout/top-nav.html" class="nav-link">
-                    <i class="fas fa-pen nav-icon"></i>
-                    <p>Edit Data Survey</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="../layout/top-nav.html" class="nav-link">
-                    <i class="fas fa-trash nav-icon"></i>
-                    <p>Hapus Data Survey</p>
-                  </a>
-                </li>
-              </ul>
-
             </li>
             <li class="nav-item">
               <a href="#" class="nav-link">
@@ -152,6 +129,12 @@
               </a>
             </li>
           </ul>
+          <br>
+          <br>
+          <br><br><br><br>
+          <br><br><br><br>
+          <br><br><br><br>
+          <br><br>
         </nav>
         <!-- /.sidebar-menu -->
       </div>
