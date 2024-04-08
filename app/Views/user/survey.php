@@ -35,7 +35,7 @@
             <form>
               <div class="form-group">
                 <label for="nama">Nama Marketing</label>
-                <input type="text" class="form-control" id="nama" placeholder="Masukkan Nama">
+                <input type="text" class="form-control" id="nama" disabled placeholder="Masukkan Nama">
               </div>
               <div class="form-group">
                 <label>Tanggal Survey</label>
