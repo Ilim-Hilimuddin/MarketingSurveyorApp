@@ -38,7 +38,7 @@
               </div>
               <div class="form-group">
                 <label for="nama">Id Marketing</label>
-                <input type="text" class="form-control" id="nama" placeholder="Id Marketing">
+                <input type="text" class="form-control" id="id" placeholder="Id Marketing">
               </div>
               <div class="form-group">
                 <label for="gender">Jenis Kelamin</label>
@@ -148,7 +148,5 @@
     </div>
   </div>
 </section>
-
-
-</div>
+<?= $this->include('layouts/script.php') ?>
 <?= $this->endSection(); ?>
