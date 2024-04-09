@@ -9,9 +9,9 @@
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="<?= base_url() ?>/plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="<?= base_url() ?>/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="/dist/css/adminlte.min.css">
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -63,7 +63,7 @@
       <!-- Brand Logo -->
       <div class="d-flex col-md-12 mt-2" style="margin-left: -20px;">
         <div class="col-md-5 text-center">
-          <img src="<?= base_url() ?>/dist/img/logo-abadi-utama.png" alt="AdminLTE Logo" class="nav-icon img-circle w-50">
+          <img src="/dist/img/logo-abadi-utama.png" alt="AdminLTE Logo" class="nav-icon img-circle w-50">
         </div>
         <div class="col-md-9" style="margin-left: -25px;">
           <p class="brand-text font-weight-bold text-yellow">E-MARKETING SURVEYOR</p>
@@ -80,7 +80,7 @@
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
             <li class="nav-item">
-              <a href="<?= base_url() ?>admin/dashboard" class="nav-link">
+              <a href="/admin/dashboard" class="nav-link">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>
                   Dashboard
@@ -100,13 +100,13 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="<?= base_url() ?>admin/admin" class="nav-link">
+                  <a href="/admin/admin" class="nav-link">
                     <i class="fas fa-file-excel nav-icon"></i>
                     <p>Admin</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="<?= base_url() ?>admin/marketing" class="nav-link">
+                  <a href="/admin/marketing" class="nav-link">
                     <i class="fas fa-file-pdf nav-icon"></i>
                     <p>Marketing</p>
                   </a>
