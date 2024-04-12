@@ -1,116 +1,137 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>login</title>
-    <meta name="description" content="The small framework with powerful features">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="image/png" href="/favicon.ico">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- STYLES -->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/dist/css/adminlte.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
     <style>
-        body {
-            background-color: #f8f9fa;
-            color: #343a40;
-            font-family: Arial, sans-serif;
-        }
-
-        header {
-            background-color: #007bff;
-            color: #fff;
-            padding: 1rem 0;
-            text-align: center;
-        }
-
-        header h1 {
+        * {
+            padding: 0;
             margin: 0;
-            font-weight: normal;
+            box-sizing: border-box;
         }
 
-        section {
-            padding: 2rem 1rem;
-            text-align: center;
+        body {
+            background: linear-gradient(-180deg, rgba(2, 0, 36, 1) 0%, rgba(75, 14, 154, 1) 35%, rgba(0, 212, 255, 1) 100%);
+            font-family: 'Poppins', sans-serif;
         }
 
-        .form-control {
-            width: 100%;
-            max-width: 300px;
-            margin: 0 auto;
-            padding: 0.5rem;
-            border: 1px solid #ced4da;
-            border-radius: 0.25rem;
+        form {
+            border-radius: 20px;
+            margin-top: 40px !important;
+            width: 24% !important;
+            background-color: white !important;
+            padding: 15px 25px;
         }
 
         .btn-primary {
-            background-color: #007bff;
-            color: #fff;
+            width: 100%;
             border: none;
-            padding: 1rem 1.2rem;
-            border-radius: 0.25rem;
-            cursor: pointer;
+            border-radius: 50px;
+            background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(75, 14, 154, 1) 35%, rgba(0, 212, 255, 1) 100%);
+            margin-top: 40px;
+            padding: 10px 0;
+            /* Increased margin-top */
         }
 
-        .btn-primary:hover {
-            background-color: #0056b3;
+        .form-control {
+            color: rgba(0, 0, 0, .87);
+            border-bottom-color: rgba(0, 0, 0, .42);
+            box-shadow: none !important;
+            border: none;
+            border-bottom: 1px solid;
+            border-radius: 4px 4px 0 0;
         }
 
-        footer {
-            background-color: #a0a0a0;
-            color: #f1f1f1;
-            padding: 1rem 0;
-            text-align: center;
+        h4 {
+            font-size: 2rem !important;
+            font-weight: 700;
+        }
+
+        .form-label {
+            font-weight: 800 !important;
+        }
+
+        @media only screen and (max-width: 600px) {
+            form {
+                width: 60% !important;
+            }
         }
     </style>
+    <title>Login</title>
 </head>
 
 <body>
-
-    <!-- HEADER -->
-    <header>
-        <h1>Selamat Datang di E-Marketing Surveyor</h1>
-    </header>
-
-    <!-- CONTENT -->
-    <section>
-        <div class="row">
-            <div class="col">
-                <img src="<?= base_url(); ?>/dist/img/main-logo.png" style="width: 350px" alt="Profile Picture">
-                <h2>LOGIN</h2>
-                <label for="username">Username:</label>
-                <input type="text" id="username" class="form-control" placeholder="Username" aria-label="Username">
+    <div class="container-fluid">
+        <form class="mx-auto" id="loginForm">
+            <h4 class="text-center">Login</h4>
+            <!-- Email Field -->
+            <div class="mb-3 mt-3">
+                <label for="EmailInput" class="form-label">Email</label>
+                <input type="email" class="form-control" id="EmailInput" aria-describedby="emailHelp">
             </div>
-            <div class="col">
-                <br> <!-- Add line break here -->
-                <label for="password">Password:</label>
-                <input type="password" id="password" class="form-control" placeholder="Password" aria-label="Password">
+            <!-- Password Field -->
+            <div class="mb-3">
+                <label for="PasswordInput" class="form-label">Password</label>
+                <input type="password" class="form-control" id="PasswordInput">
             </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col">
-                <button type="button" id="loginButton" class="btn btn-primary">Masuk</button>
+            <!-- Remember Me Checkbox -->
+            <div class="mb-3 form-check">
+                <input class="form-check-input" type="checkbox" value="remember-me" id="RememberMeCheckbox" onclick="saveEmail()">
+                <label class="form-check-label" for="RememberMeCheckbox">Remember Me</label>
             </div>
-        </div>
-    </section>
+            <!-- Submit Button -->
+            <button type="button" class="btn btn-primary mt-4" onclick="submitLoginForm()">Login</button>
+            <!-- Increased margin-top -->
+            <!-- Copyright -->
+            <p style="margin-top: 50px; text-align: center; color: grey">&copy; 2024 - E-Marketing Surveyor</p>
+        </form>
+    </div>
 
-    <!-- FOOTER -->
-    <footer style="display:block; position:absolute; bottom:0; width:100%; padding: 10px 0;">
-        <div style="display: block; float: right; margin-right: 10px">
-            <b>E-Marketing Surveyor</b>
-        </div>
-        <strong style="float: left; margin-left: 10px">Copyright &copy; <?= date('Y'); ?> All rights reserved.
-    </footer>
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-    <!-- SCRIPT -->
-    <script>
-        // Menambahkan event listener untuk menangani klik pada tombol "Masuk"
-        document.getElementById('loginButton').addEventListener('click', function() {
-            // Lakukan pengalihan ke halaman dashboard
-            window.location.href = 'dashboard.php'; // Ganti 'dashboard.php' dengan URL sesuai kebutuhan kita yaaa
-        });
-    </script>
+    <!-- <script>
+        // Function to save email to localStorage when Remember Me is clicked
+        function saveEmail() {
+            var emailInput = document.getElementById("EmailInput");
+            var rememberMeCheckbox = document.getElementById("RememberMeCheckbox");
+            if (rememberMeCheckbox.checked) {
+                localStorage.setItem("rememberedEmail", emailInput.value);
+            } else {
+                localStorage.removeItem("rememberedEmail");
+            }
+        }
 
+        // Function to fill email field if remembered email is present in localStorage
+        function fillRememberedEmail() {
+            var rememberedEmail = localStorage.getItem("rememberedEmail");
+            var emailInput = document.getElementById("EmailInput");
+
+            if (rememberedEmail) {
+                emailInput.value = rememberedEmail;
+            }
+        }
+
+        // Call fillRememberedEmail() function when the page loads
+        fillRememberedEmail();
+
+        function submitLoginForm() {
+            // Get email and password input values
+            var email = document.getElementById("EmailInput").value;
+            var password = document.getElementById("PasswordInput").value;
+
+            // Simulate form submission for demonstration
+            console.log("Email: " + email);
+            console.log("Password: " + password);
+            // You can replace the alert with actual form submission logic using AJAX or other methods
+        }
+    </script> -->
 </body>
 
 </html>

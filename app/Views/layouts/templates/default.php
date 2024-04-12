@@ -80,7 +80,7 @@
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
             <li class="nav-item">
-              <a href="/admin/dashboard" class="nav-link">
+              <a href="/user" class="nav-link">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>
                   Dashboard
@@ -91,27 +91,12 @@
             <li class="nav-header">DATA MANAGER</li>
             <div class="brand-link" style="margin-top: -20px;"></div>
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="/user/data_pengguna" class="nav-link">
                 <i class="fas fa-users nav-icon"></i>
                 <p>
-                  Data User
-                  <i class="right fas fa-angle-left"></i>
+                  Data Pengguna
                 </p>
               </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="/admin/admin" class="nav-link">
-                    <i class="fas fa-file-excel nav-icon"></i>
-                    <p>Admin</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="/admin/marketing" class="nav-link">
-                    <i class="fas fa-file-pdf nav-icon"></i>
-                    <p>Marketing</p>
-                  </a>
-                </li>
-              </ul>
             </li>
 
             <li class="nav-item">
@@ -135,7 +120,7 @@
             <div class="brand-link" style="margin-top: -20px;"></div>
             <li class="nav-item">
 
-              <a href="#" class="nav-link">
+              <a href="/user/survey" class="nav-link">
                 <i class="fas fa-calendar nav-icon"></i>
                 <p>
                   Data Transaksi
