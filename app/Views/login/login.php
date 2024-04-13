@@ -22,8 +22,9 @@
         }
 
         form {
-            border-radius: 20px;
-            margin-top: 40px !important;
+            border-radius: 5px;
+            box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+            margin-top: 80px !important;
             width: 24% !important;
             background-color: white !important;
             padding: 15px 25px;
@@ -33,8 +34,8 @@
             width: 100%;
             border: none;
             border-radius: 50px;
+            margin-top: 25px;
             background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(75, 14, 154, 1) 35%, rgba(0, 212, 255, 1) 100%);
-            margin-top: 40px;
             padding: 10px 0;
             /* Increased margin-top */
         }
@@ -63,17 +64,17 @@
             }
         }
     </style>
-    <title>Login</title>
+    <title>E-Marketing Surveyor | Login</title>
 </head>
 
 <body>
     <div class="container-fluid">
         <form class="mx-auto" id="loginForm">
-            <h4 class="text-center">Login</h4>
+            <h4 class="text-center mt-3">Login</h4>
             <!-- Email Field -->
             <div class="mb-3 mt-3">
                 <label for="EmailInput" class="form-label">Email</label>
-                <input type="email" class="form-control" id="EmailInput" aria-describedby="emailHelp">
+                <input type="email" class="form-control" id="EmailInput" autofocus>
             </div>
             <!-- Password Field -->
             <div class="mb-3">
@@ -81,15 +82,15 @@
                 <input type="password" class="form-control" id="PasswordInput">
             </div>
             <!-- Remember Me Checkbox -->
-            <div class="mb-3 form-check">
+            <!-- <div class="mb-3 form-check">
                 <input class="form-check-input" type="checkbox" value="remember-me" id="RememberMeCheckbox" onclick="saveEmail()">
                 <label class="form-check-label" for="RememberMeCheckbox">Remember Me</label>
-            </div>
+            </div> -->
             <!-- Submit Button -->
-            <button type="button" class="btn btn-primary mt-4" onclick="submitLoginForm()">Login</button>
+            <button type="button" class="btn btn-primary" onclick="submitLoginForm()">Login</button>
             <!-- Increased margin-top -->
             <!-- Copyright -->
-            <p style="margin-top: 50px; text-align: center; color: grey">&copy; 2024 - E-Marketing Surveyor</p>
+            <p style="margin-top: 20px; text-align: center; color: grey;">&copy; 2024 - E-Marketing Surveyor</p>
         </form>
     </div>
 
