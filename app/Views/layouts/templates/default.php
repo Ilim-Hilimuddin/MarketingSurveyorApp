@@ -100,7 +100,7 @@
             </li>
 
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="/user/data_barang" class="nav-link">
                 <i class="fas fa-boxes nav-icon"></i>
                 <p>
                   Data Barang
@@ -109,7 +109,7 @@
             </li>
 
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="/user/data_lokasi" class="nav-link">
                 <i class="fas fa-map nav-icon"></i>
                 <p>
                   Data Lokasi
