@@ -1,5 +1,10 @@
 <?= $this->extend('layouts/templates/default'); ?>
 <?= $this->section('content'); ?>
+<?php
+// Simpan data dari session
+$user = session()->get('user');
+$role = $user['id_role'];
+?>
 <!-- Content Header (Page header) -->
 <section class="content-header">
   <div class="container-fluid">
@@ -18,10 +23,10 @@
 </section>
 <section class="content">
   <div class="container-fluid">
-    <h4 class="mb-3">Selamat Datang, <span class="text-primary">Admin</span></h4>
+    <h4 class="mb-3">Selamat Datang, <span class="text-primary text-uppercase"><?= $user['nama_lengkap']; ?></span></h4>
     <!-- Space kosong untuk tambahan bisa dibuang jika tidak dipakai -->
 
-    <div class="row">
+    <div class=" row">
       <div class="col-md-6">
 
         <!-- DONUT CHART -->

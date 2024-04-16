@@ -1,3 +1,11 @@
+ <?php
+  $data = [
+    'labels' => ['Gula', 'Beras', 'Tepung Terigu', 'Minyak', 'Kopi', 'Air Mineral'],
+    'datasets' => [650, 788, 900, 550, 350, 298]
+  ]
+  ?>
+
+
  <!-- jQuery -->
  <script src="/plugins/jquery/jquery.min.js"></script>
  <!-- Bootstrap 4 -->
@@ -27,7 +35,7 @@
            label: 'Electronics',
            backgroundColor: 'rgba(210, 214, 222, 1)',
            borderColor: 'rgba(210, 214, 222, 1)',
-           pointRadius: false,
+           pointRadius: true,
            pointColor: 'rgba(210, 214, 222, 1)',
            pointStrokeColor: '#c1c7d1',
            pointHighlightFill: '#fff',
@@ -42,17 +50,35 @@
      // Get context with jQuery - using jQuery's .get() method.
      var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
      var donutData = {
-       labels: [
-         'Chrome',
-         'IE',
-         'FireFox',
-         'Safari',
-         'Opera',
-         'Navigator',
-       ],
+       //  labels: [
+       //    'Chrome',
+       //    'IE',
+       //    'FireFox',
+       //    'Safari',
+       //    'Opera',
+       //    'Navigator',
+       //  ],
+       //  datasets: [{
+       //    data: [700, 500, 400, 600, 300, 100],
+       //    backgroundColor: ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
+       //  }]
+
+       labels: [<?php
+                foreach ($data['labels'] as $label) {
+                  echo "'$label',";
+                }
+                ?>],
        datasets: [{
-         data: [700, 500, 400, 600, 300, 100],
-         backgroundColor: ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
+         data: [<?php
+                foreach ($data['datasets'] as $dataset) {
+                  echo "'$dataset',";
+                }
+                ?>],
+         backgroundColor: [<?php
+                            for ($i = 0; $i < count($data['datasets']); $i++) {
+                              echo "'rgba(" . rand(0, 255) . ", " . rand(0, 255) . ", " . rand(0, 255) . ", 0.9)',";
+                            }
+                            ?>],
        }]
      }
      var donutOptions = {

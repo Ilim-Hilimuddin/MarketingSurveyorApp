@@ -1,3 +1,9 @@
+<?php
+// Simpan data dari session
+$user = session()->get('user');
+$role = $user['id_role'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -87,35 +93,36 @@
                 </p>
               </a>
             </li>
+            <?php if ($role == 1) : ?>
+              <li class="nav-header">DATA MANAGER</li>
+              <div class="brand-link" style="margin-top: -20px;"></div>
+              <li class="nav-item">
+                <a href="/user/data_pengguna" class="nav-link">
+                  <i class="fas fa-users nav-icon"></i>
+                  <p>
+                    Data Pengguna
+                  </p>
+                </a>
+              </li>
 
-            <li class="nav-header">DATA MANAGER</li>
-            <div class="brand-link" style="margin-top: -20px;"></div>
-            <li class="nav-item">
-              <a href="/user/data_pengguna" class="nav-link">
-                <i class="fas fa-users nav-icon"></i>
-                <p>
-                  Data Pengguna
-                </p>
-              </a>
-            </li>
+              <li class="nav-item">
+                <a href="/user/data_barang" class="nav-link">
+                  <i class="fas fa-boxes nav-icon"></i>
+                  <p>
+                    Data Barang
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/user/data_lokasi" class="nav-link">
+                  <i class="fas fa-map nav-icon"></i>
+                  <p>
+                    Data Lokasi
+                  </p>
+                </a>
+              </li>
+            <?php endif; ?>
 
-            <li class="nav-item">
-              <a href="/user/data_barang" class="nav-link">
-                <i class="fas fa-boxes nav-icon"></i>
-                <p>
-                  Data Barang
-                </p>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a href="/user/data_lokasi" class="nav-link">
-                <i class="fas fa-map nav-icon"></i>
-                <p>
-                  Data Lokasi
-                </p>
-              </a>
-            </li>
             <li class="nav-header">TRANSAKSI</li>
             <div class="brand-link" style="margin-top: -20px;"></div>
             <li class="nav-item">
@@ -152,7 +159,7 @@
             </li>
             <div class="brand-link"></div>
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="/logout" class="nav-link">
                 <i class="fas fa-sign-out-alt nav-icon"></i>
                 <p> Logout</p>
               </a>

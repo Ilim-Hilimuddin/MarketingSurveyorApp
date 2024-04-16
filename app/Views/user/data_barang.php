@@ -31,19 +31,19 @@
             </button>
           </div>
           <div class="modal-body">
-            <form>
+            <form action="" method="post">
               <div class="form-group">
                 <label for="id_barang">Id Barang</label>
-                <input type="text" class="form-control" name="id_barang" placeholder="Masukkan ID barang...">
+                <input type="text" class="form-control" id="id_barang" name="id" placeholder="Masukkan ID barang...">
               </div>
               <div class="form-group">
                 <label for="nama">Nama Barang</label>
-                <input type="text" class="form-control" name="nama_barang" placeholder="Masukan nama barang...">
+                <input type="text" class="form-control" id="nama_barang" name="nama" placeholder="Masukan nama barang...">
               </div>
               <!-- Modal Footer -->
               <div class="modal-footer bg-light">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                <button type="button" class="btn btn-primary">Simpan</button>
+                <button type="button" class="btn btn-primary" id="simpan">Simpan</button>
               </div>
             </form>
           </div>
@@ -76,24 +76,18 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>BRG-001</td>
-              <td>Beras</td>
-              <td>
-                <button type="button" class="btn btn-primary btn-sm">Edit</button>
-                <button type="button" class="btn btn-danger btn-sm">Hapus</button>
-              </td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>BRG-002</td>
-              <td>Gula</td>
-              <td>
-                <button type="button" class="btn btn-primary btn-sm">Edit</button>
-                <button type="button" class="btn btn-danger btn-sm">Hapus</button>
-              </td>
-            </tr>
+            <?= (!count($barang)) ? '<tr><td colspan="3" class="text-left">Tidak ada data</td></tr>' : ''; ?>
+            <?php foreach ($barang as $key => $brg) : ?>
+              <tr>
+                <td><?= $key + 1 ?></td>
+                <td><?= $brg['id_barang'] ?></td>
+                <td><?= $brg['nama_barang'] ?></td>
+                <td>
+                  <button type="button" class="btn btn-primary btn-sm" value="<?= $brg['id_barang']; ?>">Edit</button>
+                  <button type="button" class="btn btn-danger btn-sm" value="<?= $brg['id_barang']; ?>">Hapus</button>
+                </td>
+              </tr>
+            <?php endforeach; ?>
           </tbody>
         </table>
       </div>
@@ -102,4 +96,22 @@
   </div>
 </section>
 <?= $this->include('layouts/templates/script.php') ?>
+<script>
+  $('#simpan').on('click', function() {
+    $id_barang = $('#id_barang').val();
+    $nama_barang = $('#nama_barang').val();
+    $.ajax({
+      url: '<?= site_url("/user/data_barang/simpan"); ?>',
+      type: 'POST',
+      data: {
+        'id_barang': $id_barang,
+        'nama_barang': $nama_barang
+      },
+      success: function(data) {
+        alert(data);
+        // location.reload();
+      }
+    });
+  })
+</script>
 <?= $this->endSection(); ?>

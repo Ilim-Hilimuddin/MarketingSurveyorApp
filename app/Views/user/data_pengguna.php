@@ -99,7 +99,7 @@
     <!-- TABEL -->
     <div class="card col-md-12">
       <div class="card-header">
-        <h2 class="card-title">Tabel Data Admin</h2>
+        <h2 class="card-title">Tabel Data Users</h2>
         <div class="card-tools">
           <div class="input-group input-group-sm" style="width: 150px;">
             <input type="text" name="table_search" class="form-control float-right" style="height: 28px;" placeholder="Cari">
@@ -117,38 +117,28 @@
           <thead>
             <tr>
               <th>#</th>
-              <th>Nama</th>
-              <th>Id Admin</th>
+              <th>Nama Lengkap</th>
+              <th>ID User</th>
               <th>Email</th>
               <th>Telepon</th>
               <th>Aksi</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>Ferry</td>
-              <td>ADM-001</td>
-              <td>ferry@gmail.com</td>
-              <td>081238832244</td>
-              <td>
-                <button type="button" class="btn btn-success btn-sm">Detail</button>
-                <button type="button" class="btn btn-primary btn-sm">Edit</button>
-                <button type="button" class="btn btn-danger btn-sm">Hapus</button>
-              </td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Dea Anindia</td>
-              <td>ADM-002</td>
-              <td>dea@gmail.com</td>
-              <td>0812435454545</td>
-              <td>
-                <button type="button" class="btn btn-success btn-sm">Detail</button>
-                <button type="button" class="btn btn-primary btn-sm">Edit</button>
-                <button type="button" class="btn btn-danger btn-sm">Hapus</button>
-              </td>
-            </tr>
+            <?php foreach ($users as $key => $user) : ?>
+              <tr>
+                <td><?= $key + 1; ?></td>
+                <td><?= $user['nama_lengkap']; ?></td>
+                <td><?= $user['id_user']; ?></td>
+                <td><?= $user['email']; ?></td>
+                <td><?= $user['telepon']; ?></td>
+                <td>
+                  <button type="button" class="btn btn-success btn-sm" value="<?= $user['id_user']; ?>">Detail</button>
+                  <button type="button" class="btn btn-primary btn-sm" value="<?= $user['id_user']; ?>">Edit</button>
+                  <button type="button" class="btn btn-danger btn-sm" value="<?= $user['id_user']; ?>">Hapus</button>
+                </td>
+              </tr>
+            <?php endforeach; ?>
           </tbody>
         </table>
       </div>
