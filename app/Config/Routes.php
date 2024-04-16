@@ -18,4 +18,4 @@ $routes->post('/user/data_barang/simpan', 'Data_Barang::simpan');
 // $routes->get('/admin/dashboard', 'Admin::dashboard');
 // $routes->get('/admin/admin', 'Admin::admin');
 // $routes->get('/admin/marketing', 'Admin::marketing');
-// $routes->get('/user/dashboard', 'User::dashboard');
+// $routes->get('/user/dashboard', 'User::dashboard'); 
