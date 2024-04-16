@@ -14,6 +14,9 @@ $routes->get('/user/data_pengguna', 'User::data_pengguna');
 $routes->get('/user/data_barang', 'User::data_barang');
 $routes->get('/user/data_lokasi', 'User::data_lokasi');
 $routes->post('/user/data_barang/simpan', 'Data_Barang::simpan');
+$routes->post('/user/data_barang/edit', 'Data_Barang::edit');
+$routes->post('/user/data_barang/cari', 'Data_Barang::cari');
+$routes->post('/user/data_barang/hapus', 'Data_Barang::hapus');
 
 // $routes->get('/admin/dashboard', 'Admin::dashboard');
 // $routes->get('/admin/admin', 'Admin::admin');
