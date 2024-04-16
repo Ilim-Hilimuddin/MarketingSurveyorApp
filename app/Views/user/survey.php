@@ -1,9 +1,14 @@
+<?php
+// Simpan data dari session
+$user = session()->get('user');
+$role = $user['id_role'];
+?>
 <?= $this->extend('layouts/templates/default'); ?>
 
 <?= $this->section('content'); ?>
 <section class="content-header">
   <div class="container-fluid">
-    <div class="row mb-2">
+    <div class="row mb-5">
       <div class="col-sm-6">
         <h1>Data Survey</h1>
       </div>
@@ -14,11 +19,10 @@
         </ol>
       </div>
     </div>
-    <p class="mb3" style="font-size: 16px;">Nama Marketing: <span class="text-primary">Maulana</span></p>
     <!-- MODAL -->
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target="#tambahData">
-      + Tambah Data
+      + Tambah Data Survey
     </button>
 
     <!-- Modal -->
@@ -26,7 +30,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header bg-light">
-            <h5 class="modal-title" id="tambahDataLabel">Tambah Data Survey</h5>
+            <h5 class="modal-title" id="tambahDataLabel">Formulir Survey Baru</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -34,8 +38,12 @@
           <div class="modal-body">
             <form>
               <div class="form-group">
-                <label for="nama">Nama Marketing</label>
-                <input type="text" class="form-control" id="nama" disabled value="Maulana">
+                <label for="nama">Id Sales</label>
+                <input type="text" class="form-control" name="id_sales" <?= ($role != 1) ? 'disabled value=' . $user['id_user'] : 'value=""'; ?>>
+              </div>
+              <div class="form-group">
+                <label for="nama">Nama Sales</label>
+                <input type="text" class="form-control" name="nama_sales" <?= ($role != 1) ? 'disabled value=' . '"' . $user['nama_lengkap'] . '"' : 'disabled value=""'; ?>>
               </div>
               <div class="form-group">
                 <label>Tanggal Survey</label>
@@ -90,7 +98,7 @@
     <!-- TABEL -->
     <div class="card col-md-12">
       <div class="card-header">
-        <h2 class="card-title">Data Survey: Maulana</h2>
+        <h2 class="card-title">Data Survey: <?= ($user['id_role'] == 1) ? ' Sales' : $user['nama_lengkap']; ?></h2>
         <div class="card-tools">
           <div class="input-group input-group-sm" style="width: 150px;">
             <input type="text" name="table_search" class="form-control float-right" style="height: 28px;" placeholder="Cari">
@@ -108,7 +116,7 @@
           <thead>
             <tr>
               <th>#</th>
-              <th>Nama Marketing</th>
+              <th>Nama Sales</th>
               <th>Tanggal</th>
               <th>Barang</th>
               <th>Lokasi</th>
@@ -127,7 +135,9 @@
               <td>
                 <button type="button" class="btn btn-success btn-sm">Detail</button>
                 <button type="button" class="btn btn-primary btn-sm">Edit</button>
-                <button type="button" class="btn btn-danger btn-sm">Hapus</button>
+                <?php if ($role == 1) : ?>
+                  <button type="button" class="btn btn-danger btn-sm">Hapus</button>
+                <?php endif ?>
               </td>
             </tr>
             <tr>
@@ -140,7 +150,9 @@
               <td>
                 <button type="button" class="btn btn-success btn-sm">Detail</button>
                 <button type="button" class="btn btn-primary btn-sm">Edit</button>
-                <button type="button" class="btn btn-danger btn-sm">Hapus</button>
+                <?php if ($role == 1) : ?>
+                  <button type="button" class="btn btn-danger btn-sm">Hapus</button>
+                <?php endif ?>
               </td>
             </tr>
           </tbody>

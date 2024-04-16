@@ -25,7 +25,7 @@
             border-radius: 5px;
             box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
             margin-top: 80px !important;
-            width: 24% !important;
+            width: 35% !important;
             background-color: white !important;
             padding: 15px 25px;
         }
@@ -37,6 +37,8 @@
             margin-top: 25px;
             background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(75, 14, 154, 1) 35%, rgba(0, 212, 255, 1) 100%);
             padding: 10px 0;
+            font-size: 1.2rem;
+            font-weight: 600;
             /* Increased margin-top */
         }
 
@@ -60,7 +62,7 @@
 
         @media only screen and (max-width: 600px) {
             form {
-                width: 60% !important;
+                width: 90% !important;
             }
         }
     </style>
@@ -69,17 +71,46 @@
 
 <body>
     <div class="container-fluid">
-        <form class="mx-auto" id="loginForm">
-            <h4 class="text-center mt-3">Login</h4>
+        <form class="mx-auto" method="POST" action="<?= base_url('login'); ?>">
+            <h4 class="mx-auto text-center text-bold mt-3 mb-3">LOGIN</h4>
+            <!-- <div class="w-50 mb-5" ></div> -->
+            <?php
+            // if (session('errEmail') || session('errPass')) {
+            //     echo '<div class="alert alert-danger" role="alert">';
+            //     if (session('errEmail')) {
+            //         echo session('errEmail');
+            //     } else if (session('errPass')) {
+            //         echo session('errPass');
+            //     }
+            //     echo '</div>';
+            // }
+
+            $isInvalidEmail = "";
+            $isInvalidPass = "";
+            if (session()->getFlashdata('errEmail') || session()->getFlashdata('errPass')) {
+                $isInvalidEmail = (session()->getFlashdata('errEmail')) ? "is-invalid" : "";
+                $isInvalidPass = (session()->getFlashdata('errPass')) ? "is-invalid" : "";
+            }
+            ?>
             <!-- Email Field -->
-            <div class="mb-3 mt-3">
-                <label for="EmailInput" class="form-label">Email</label>
-                <input type="email" class="form-control" id="EmailInput" autofocus>
+            <div class="mb-5">
+                <label for="EmailInput" class="form-label mb-1">Email</label>
+                <input type="text" class="form-control <?= $isInvalidEmail; ?>" name="email" autofocus value="<?= session()->getFlashdata('inputEmail') ?>">
+                <?php
+                if (session()->getFlashdata('errEmail')) {
+                    echo '<div class="invalid-feedback">' . session()->getFlashdata('errEmail') . '</div>';
+                }
+                ?>
             </div>
             <!-- Password Field -->
-            <div class="mb-3">
-                <label for="PasswordInput" class="form-label">Password</label>
-                <input type="password" class="form-control" id="PasswordInput">
+            <div>
+                <label for="PasswordInput" class="form-label mb-1">Password</label>
+                <input type="password" class="form-control <?= $isInvalidPass; ?>" name="password">
+                <?php
+                if (session()->getFlashdata('errPass')) {
+                    echo '<div class="invalid-feedback">' . session()->getFlashdata('errPass') . '</div>';
+                }
+                ?>
             </div>
             <!-- Remember Me Checkbox -->
             <!-- <div class="mb-3 form-check">
@@ -87,7 +118,8 @@
                 <label class="form-check-label" for="RememberMeCheckbox">Remember Me</label>
             </div> -->
             <!-- Submit Button -->
-            <button type="button" class="btn btn-primary" onclick="submitLoginForm()">Login</button>
+            <br>
+            <button type="submit" name="login" class="btn btn-primary mb-4" onclick="submitLoginForm()">LOGIN</button>
             <!-- Increased margin-top -->
             <!-- Copyright -->
             <p style="margin-top: 20px; text-align: center; color: grey;">&copy; 2024 - E-Marketing Surveyor</p>
