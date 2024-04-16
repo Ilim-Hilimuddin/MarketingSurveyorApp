@@ -157,6 +157,37 @@ $role = $user['id_role'];
                 </li>
               </ul>
             </li>
+            <li class="nav-header">PROFILE</li>
+            <div class="brand-link" style="margin-top: -20px;"></div>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="fas fa-user nav-icon"></i>
+                <p>
+                  Profile
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="/user/profile" class="nav-link">
+                    <i class="fas fa-user-tag nav-icon"></i>
+                    <p>Lihat Profile</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="/user/edit_profile" class="nav-link">
+                    <i class="fas fa-user-edit nav-icon"></i>
+                    <p>Edit Profile</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="/user/info" class="nav-link">
+                    <i class="fas fa-info-circle nav-icon"></i>
+                    <p>Info</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
             <div class="brand-link"></div>
             <li class="nav-item">
               <a href="/logout" class="nav-link">
