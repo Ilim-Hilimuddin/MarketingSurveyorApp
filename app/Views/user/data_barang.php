@@ -16,12 +16,12 @@
     </div>
     <!-- MODAL -->
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target="#tambahData">
+    <button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target="#modalTambah">
       + Tambah Data Barang
     </button>
 
     <!-- Modal TAMBAH DATA -->
-    <div class="modal fade" id="tambahData" tabindex="-1" aria-labelledby="tambahBarang" aria-hidden="true">
+    <div class="modal fade" id="modalTambah" tabindex="-1" aria-labelledby="tambahBarang" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header bg-light">
@@ -31,7 +31,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <form action="" method="post">
+            <form id="tambahBarangForm" action="" method="post">
               <div class="form-group">
                 <label for="id_barang">Id Barang</label>
                 <input type="text" class="form-control" id="id_barang" name="id" placeholder="Masukkan ID barang...">
@@ -63,7 +63,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <form action="" method="post">
+            <form id="editBarangForm" action="" method="post">
               <div class="form-group">
                 <label for="idEdit">Id Barang</label>
                 <input type="text" class="form-control" id="idEdit" name="id" placeholder="Masukkan ID barang...">
@@ -89,19 +89,21 @@
       <div class="card-header">
         <h2 class="card-title">Tabel Data Barang</h2>
         <div class="card-tools">
-          <div class="input-group input-group-sm" style="width: 150px;">
-            <input type="text" name="table_search" class="form-control float-right" style="height: 28px;" placeholder="Cari">
-            <div class="input-group-append">
-              <button type="submit" class="btn btn-default">
-                <i class="fas fa-search"></i>
-              </button>
+          <form action="" method="get">
+            <div class="input-group input-group-sm" style="width: 150px;">
+              <input type="text" name="katakunci" class="form-control float-right" style="height: 28px;" placeholder="Cari" value="<?= $katakunci; ?>">
+              <div class="input-group-append">
+                <button type="submit" class="btn btn-default">
+                  <i class="fas fa-search"></i>
+                </button>
+              </div>
             </div>
-          </div>
+          </form>
         </div>
       </div>
       <!-- /.card-header -->
       <div class="card-body table-responsive p-0">
-        <table class="table table-hover text-nowrap">
+        <table id="tbl-data" class="table table-hover text-nowrap">
           <thead>
             <tr>
               <th>#</th>
@@ -114,7 +116,7 @@
             <?= (!count($barang)) ? '<tr><td colspan="3" class="text-left">Tidak ada data</td></tr>' : ''; ?>
             <?php foreach ($barang as $key => $brg) : ?>
               <tr>
-                <td><?= $key + 1 ?></td>
+                <td><?= $nomor++ ?></td>
                 <td><?= $brg['id_barang'] ?></td>
                 <td><?= $brg['nama_barang'] ?></td>
                 <td>
@@ -125,6 +127,13 @@
             <?php endforeach; ?>
           </tbody>
         </table>
+        <?php
+        $link = $pager->links();
+        $link = str_replace('<li class="active">', '<li class="page-item active">', $link);
+        $link = str_replace('<li>', '<li class="page-item">', $link);
+        $link = str_replace('<a', '<a class="page-link"', $link);
+        echo '<div class="d-flex justify-content-center mt-3">' . $link . '</div>';
+        ?>
       </div>
       <!-- /.card-body -->
     </div>
@@ -134,7 +143,8 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
   var last_id = ''
-  var last_nama = '';
+  var last_nama = ''
+
   $('#id_barang').on('change', function() {
     var id_barang = $('#id_barang').val();
     // Memeriksa apakah input memenuhi format yang diharapkan ("BRG-xxx")
@@ -181,7 +191,9 @@
             showConfirmButton: false,
             timer: 2000
           }).then(() => {
-            location.reload();
+            $('#modalTambah').modal('hide');
+            resetForm()
+            $('#tbl-data').load(location.href + ' #tbl-data'); //location.reload();
           });
         } else {
           if (data.invalidId) {
@@ -202,6 +214,19 @@
       }
     });
   })
+
+  function resetForm() {
+    $('#tambahBarangForm')[0].reset();
+    $('#id_barang').removeClass('is-invalid');
+    $('#invalidIdBarang').text('');
+    $('#nama_barang').removeClass('is-invalid');
+    $('#invalidNamaBarang').text('');
+    $('#idEdit').removeClass('is-invalid');
+    $('#invalidEditId').text('');
+    $('#namaEdit').removeClass('is-invalid');
+    $('#invalidEditNama').text('');
+    $('#editBarangForm')[0].reset();
+  }
 
   $('#editData').on('show.bs.modal', function(event) {
     var button = $(event.relatedTarget);
@@ -245,7 +270,9 @@
             showConfirmButton: false,
             timer: 2000
           }).then(() => {
-            location.reload();
+            $('#editData').modal('hide');
+            resetForm()
+            $('#tbl-data').load(location.href + ' #tbl-data') // location.reload();
           });
         } else {
           if (data.invalidId) {
