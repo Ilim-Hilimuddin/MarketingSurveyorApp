@@ -16,16 +16,15 @@ class Login extends BaseController
     {
         $validation = \Config\Services::validation();
 
-        $email = $this->request->getVar('email');
+        $user = $this->request->getVar('user');
         $password = $this->request->getVar('password');
 
         $valid = $this->validate([
-            'email' => [
-                'label' => 'Email',
-                'rules' => 'required|valid_email',
+            'user' => [
+                'label' => 'Email atau ID User',
+                'rules' => 'required',
                 'errors' => [
                     'required' => '{field} harus diisi',
-                    'valid_email' => '{field} tidak valid'
                 ]
             ],
             'password' => [
@@ -40,33 +39,33 @@ class Login extends BaseController
 
         if (!$valid) {
             $sesErr = [
-                'inputEmail' => $email,
-                'errEmail' => $validation->getError('email'),
+                'inputUser' => $user,
+                'errUser' => $validation->getError('user'),
                 'errPass' => $validation->getError('password')
             ];
             session()->setFlashdata($sesErr);
             return redirect()->to('/');
         } else {
             $userModel = new \App\Models\UserModel();
-            $user = $userModel->where('email', $email)->first();
-            // dd($user['password'] . ' - ' . password_hash($password, PASSWORD_BCRYPT) . ' - ' . $password);
-            if ($user) {
-                if (password_verify($password, $user['password'])) {
+            $getUser = $userModel->where('email', $user)->orWhere('id_user', $user)->first();
+            // dd($getUser);
+            if ($getUser) {
+                if (password_verify($password, $getUser['password'])) {
                     $data = [
-                        'user' => $user,
+                        'user' => $getUser,
                         'logged_in' => TRUE
                     ];
                     session()->set($data);
                     return redirect()->to('/user');
                 } else {
                     $sessErr['errPass'] = 'Password salah';
-                    $sessErr['inputEmail'] = $email;
+                    $sessErr['inputUser'] = $user;
                     session()->setFlashdata($sessErr);
                     return redirect()->to('/');
                 }
             } else {
-                $sessErr['errEmail'] = 'Email tidak terdaftar';
-                $sessErr['inputEmail'] = $email;
+                $sessErr['errUser'] = 'Akun tidak terdaftar';
+                $sessErr['inputUser'] = $user;
                 session()->setFlashdata($sessErr);
                 return redirect()->to('/');
             }

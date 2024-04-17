@@ -73,39 +73,27 @@
     <div class="container-fluid">
         <form class="mx-auto" method="POST" action="<?= base_url('login'); ?>">
             <h4 class="mx-auto text-center text-bold mt-3 mb-3">LOGIN</h4>
-            <!-- <div class="w-50 mb-5" ></div> -->
             <?php
-            // if (session('errEmail') || session('errPass')) {
-            //     echo '<div class="alert alert-danger" role="alert">';
-            //     if (session('errEmail')) {
-            //         echo session('errEmail');
-            //     } else if (session('errPass')) {
-            //         echo session('errPass');
-            //     }
-            //     echo '</div>';
-            // }
-
-            $isInvalidEmail = "";
+            $isInvalidInput = "";
             $isInvalidPass = "";
-            if (session()->getFlashdata('errEmail') || session()->getFlashdata('errPass')) {
-                $isInvalidEmail = (session()->getFlashdata('errEmail')) ? "is-invalid" : "";
+            if (session()->getFlashdata('errUser') || session()->getFlashdata('errPass')) {
+                $isInvalidInput = (session()->getFlashdata('errUser')) ? "is-invalid" : "";
                 $isInvalidPass = (session()->getFlashdata('errPass')) ? "is-invalid" : "";
             }
             ?>
             <!-- Email Field -->
             <div class="mb-5">
-                <label for="EmailInput" class="form-label mb-1">Email</label>
-                <input type="text" class="form-control <?= $isInvalidEmail; ?>" name="email" autofocus value="<?= session()->getFlashdata('inputEmail') ?>">
+                <label for="LoginInput" class="form-label mb-1">Email atau ID User</label>
+                <input type="text" class="form-control <?= $isInvalidInput; ?>" name="user" autofocus value="<?= (session()->getFlashdata('inputUser')) ? session()->getFlashdata('inputUser') : ''; ?>" placeholder="Masukkan Email atau ID User">
                 <?php
-                if (session()->getFlashdata('errEmail')) {
-                    echo '<div class="invalid-feedback">' . session()->getFlashdata('errEmail') . '</div>';
-                }
-                ?>
+                if (session()->getFlashdata('errUser')) {
+                    echo '<div class="invalid-feedback">' . session()->getFlashdata('errUser') . '</div>';
+                } ?>
             </div>
             <!-- Password Field -->
             <div>
                 <label for="PasswordInput" class="form-label mb-1">Password</label>
-                <input type="password" class="form-control <?= $isInvalidPass; ?>" name="password">
+                <input type="password" class="form-control <?= $isInvalidPass; ?>" name="password" placeholder="Masukkan Password">
                 <?php
                 if (session()->getFlashdata('errPass')) {
                     echo '<div class="invalid-feedback">' . session()->getFlashdata('errPass') . '</div>';
