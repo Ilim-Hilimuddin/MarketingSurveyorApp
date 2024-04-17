@@ -33,47 +33,48 @@
 4. Lakukan git pull jika ada perubahan pada repositori
 
 #TODO
-1.	Membuat view:
-•	Dasboard 	✅
-•	Data pengguna ✅	
-•	Data Transaksi ✅
-•	Login  ✅		
-•	Data Barang ✅
-•	Data Lokasi ✅
-•	Laporan
-•	Profil
-•	Info 
-2.	Pada dashboard Menambahkan fitur :
-•	Profil :
+1. Membuat view:
+- Dasboard 	✅
+- Data pengguna ✅	
+- Data Transaksi ✅
+- Login  ✅		
+- Data Barang ✅
+- Data Lokasi ✅
+- Laporan
+- Profil
+- Info 
+2. Pada dashboard Menambahkan fitur :
+- Profil :
 - foro profil
 - Lihat Profil
 - Edit Profil
-•	Info
-3.	Filter tampilan fitur :
-Admin	: Seluruh fitur tampil [Mengakses seluruh fitur] ✅
-Sales	: Hanya menampilkan fitur: Profil, Data transaksi, dan laporan ✅
-4.	Fiter fitur Data transaksi
-Admin	: 
-- Dapat melihat seluruh data transaksi semua user 
-- Dapat menambah, merubah, melihat detail, dan menghapus data transaksi
-Sales	: 
-- Hanya dapat melihat data sendiri
-- Menambahkan data transaksi
-- melihat detail data transaksi
-- Merubah data transaksi
-5.	Membuat tabel :
-•	User ✅
-•	Barang ✅
-•	Lokasi ✅
-•	Transaksi ✅
-•	Developer ✅
-6.	Membuat Model untuk semua tabel.
-7.	Membuat modul :
-•	Login  ✅
-•	User :
-•	Tambah user
-Id_user : 	Admin -> ADM-XXX (XXX -> angka 001 – 999)
-		Sales -> SLS-XXX
+- Info
+3. Filter tampilan fitur :
+- Admin	: Seluruh fitur tampil [Mengakses seluruh fitur] ✅
+- Sales	: Hanya menampilkan fitur: Profil, Data transaksi, dan laporan ✅
+4. Fiter fitur Data transaksi
+- Admin	: 
+-- Dapat melihat seluruh data transaksi semua user 
+-- Dapat menambah, merubah, melihat detail, dan menghapus data transaksi
+- Sales	: 
+-- Hanya dapat melihat data sendiri
+-- Menambahkan data transaksi
+-- melihat detail data transaksi
+-- Merubah data transaksi
+5. Membuat tabel :
+- User ✅
+- Barang ✅
+- Lokasi ✅
+- Transaksi ✅
+- Developer ✅
+6. Membuat Model untuk semua tabel. ✅
+7. Membuat modul :
+- Login  ✅
+- User :
+-- Tambah user
+--- Id_user :
+---- Admin -> ADM-XXX (XXX -> angka 001 – 999)
+---- Sales -> SLS-XXX
 Validasi inputan :
 o	Pemberian id menyesuaikan dengan rolenya:
 Jika role yang dipilih Admin, maka id_user menjadi ADM-XXX
