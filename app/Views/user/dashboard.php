@@ -3,7 +3,6 @@
 <?php
 // Simpan data dari session
 $user = session()->get('user');
-$role = $user['id_role'];
 ?>
 <!-- Content Header (Page header) -->
 <section class="content-header">

@@ -12,11 +12,15 @@ $routes->get('/user', 'User::index');
 $routes->get('/user/survey', 'User::survey');
 $routes->get('/user/data_pengguna', 'User::data_pengguna');
 $routes->get('/user/data_barang', 'User::data_barang');
-$routes->get('/user/data_lokasi', 'User::data_lokasi');
 $routes->post('/user/data_barang/simpan', 'Data_Barang::simpan');
 $routes->post('/user/data_barang/edit', 'Data_Barang::edit');
 $routes->post('/user/data_barang/cari', 'Data_Barang::cari');
 $routes->post('/user/data_barang/hapus', 'Data_Barang::hapus');
+$routes->get('/user/data_lokasi', 'User::data_lokasi');
+$routes->post('/user/data_lokasi/simpan', 'Data_lokasi::simpan');
+$routes->post('/user/data_lokasi/edit', 'Data_lokasi::edit');
+$routes->post('/user/data_lokasi/cari', 'Data_lokasi::cari');
+$routes->post('/user/data_lokasi/hapus', 'Data_lokasi::hapus');
 
 // $routes->get('/admin/dashboard', 'Admin::dashboard');
 // $routes->get('/admin/admin', 'Admin::admin');

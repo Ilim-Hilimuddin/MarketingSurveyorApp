@@ -14,7 +14,7 @@ class Data_Barang extends BaseController
   public function simpan(): string
   {
     $id_barang = $this->request->getPost('id_barang');
-    $nama_barang = $this->request->getPost('nama_barang');
+    $nama_barang = strtoupper($this->request->getPost('nama_barang'));
     $this->CekID($id_barang, $nama_barang);
     if ($this->data['status']) {
       $this->model->insert([
@@ -30,7 +30,7 @@ class Data_Barang extends BaseController
     $this->data = ['status' => false, 'invalidId' => '', 'invalidNama' => ''];
     $id = $this->request->getPost('id');
     $idLama = $this->request->getPost('idLama');
-    $nama = $this->request->getPost('nama');
+    $nama = strtoupper($this->request->getPost('nama'));
     $namaLama = $this->request->getPost('namaLama');
     $barang = $this->model->where('id_barang', $id)->first();
     if ($barang !== null && $barang['id_barang'] != $idLama) {
