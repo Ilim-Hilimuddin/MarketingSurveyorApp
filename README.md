@@ -32,7 +32,7 @@
 
 4. Lakukan git pull jika ada perubahan pada repositori
 
-#TODO
+# TODO
 1. Membuat view:
 - Dasboard 	✅
 - Data pengguna ✅	
