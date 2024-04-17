@@ -54,8 +54,8 @@
 - Sales	: Hanya menampilkan fitur: Profil, Data transaksi, dan laporan ✅
 4. Fiter fitur Data transaksi
 - Admin	: 
->> Dapat melihat seluruh data transaksi semua user 
->> Dapat menambah, merubah, melihat detail, dan menghapus data transaksi
+> Dapat melihat seluruh data transaksi semua user 
+> Dapat menambah, merubah, melihat detail, dan menghapus data transaksi
 - Sales	: 
 -- Hanya dapat melihat data sendiri
 -- Menambahkan data transaksi
