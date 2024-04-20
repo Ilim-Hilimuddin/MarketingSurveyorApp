@@ -41,11 +41,4 @@ class User extends BaseController
         $users = $userModel->findAll();
         return view('User/data_pengguna', ['users' => $users]);
     }
-
-    public function survey(): string
-    {
-        $MTransaksi = new \App\Models\ModelTransaksi();
-        $transaksi = $MTransaksi->findAll();
-        return view('User/survey', ['transaksi' => $transaksi]);
-    }
 }

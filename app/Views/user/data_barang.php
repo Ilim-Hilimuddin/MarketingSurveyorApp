@@ -145,31 +145,28 @@
   var last_id = ''
   var last_nama = ''
 
-  $('#id_barang').on('change', function() {
-    var id_barang = $('#id_barang').val();
+  function validateIdInput(idInput, errorElement) {
     // Memeriksa apakah input memenuhi format yang diharapkan ("BRG-xxx")
-    if (!(/^BRG-\d{3}$/.test(id_barang))) {
-      $('#id_barang').val('');
-      $('#id_barang').addClass('is-invalid');
-      $('#invalidIdBarang').text('ID Barang harus berupa BRG-xxx');
+    if (!(/^BRG-\d{3}$/.test(idInput.val()))) {
+      idInput.val('');
+      idInput.addClass('is-invalid');
+      errorElement.text('ID Barang harus berupa BRG-xxx');
+      return false;
     } else {
-      $('#id_barang').removeClass('is-invalid');
-      $('#invalidIdBarang').text('');
+      idInput.removeClass('is-invalid');
+      errorElement.text('');
+      return true;
     }
+  }
+
+  $('#id_barang').on('change', function() {
+    validateIdInput($('#id_barang'), $('#invalidIdBarang'));
   });
 
   $('#idEdit').on('change', function() {
-    var idEdit = $('#idEdit').val();
-    // Memeriksa apakah input memenuhi format yang diharapkan ("BRG-xxx")
-    if (!(/^BRG-\d{3}$/.test(idEdit))) {
-      $('#idEdit').val(last_id);
-      $('#idEdit').addClass('is-invalid');
-      $('#invalidEditId').text('ID Barang harus berupa BRG-xxx');
-    } else {
-      $('#idEdit').removeClass('is-invalid');
-      $('#invalidEditId').text('');
-    }
+    validateIdInput($('#idEdit'), $('#invalidEditId'));
   });
+
 
   $('#simpan').on('click', function() {
     $id_barang = $('#id_barang').val();
@@ -294,7 +291,6 @@
     });
   });
 
-
   function deleteData(id) {
     Swal.fire({
       title: 'Hapus Data?',
@@ -331,10 +327,17 @@
                 text: 'Data gagal dihapus'
               })
             }
+          },
+          error: function(jqXHR, textStatus, errorThrown) {
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: 'Data tidak dapat dihapus karena sedang digunakan oleh data lain. Anda mungkin harus menghapus data tersebut terlebih dahulu.'
+            });
           }
         });
       }
-    })
+    });
   }
 </script>
 <?= $this->endSection(); ?>
