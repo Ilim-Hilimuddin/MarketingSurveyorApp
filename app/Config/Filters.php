@@ -46,7 +46,7 @@ class Filters extends BaseConfig
         ],
         'after' => [
             'filteradmin' => ['except' => ['/user', '/user/*']],
-            'filtersales' => ['except' => ['/user', '/user/survey', '/user/survey/*']],
+            'filtersales' => ['except' => ['/user', '/user/transaksi', '/user/transaksi/*']],
             'toolbar',
             // 'honeypot',
             // 'secureheaders',

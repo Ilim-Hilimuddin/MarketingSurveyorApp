@@ -6,6 +6,8 @@ use CodeIgniter\Model;
 
 class ModelTransaksi extends Model
 {
-  protected $table = 'barang';
-  protected $allowedFields = ['id_transaksi', 'id_user', 'id_barang', 'id_lokasi', 'tgl_transaksi', 'jumlah', 'hasil_transaksi'];
+  protected $table = 'transaksi';
+  protected $allowedFields = ['id_transaksi', 'id_user', 'id_barang', 'id_lokasi', 'tgl_transaksi', 'jumlah', 'isRepeatOrder', 'hasil_transaksi'];
+
+  protected $perPage = 5;
 }

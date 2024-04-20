@@ -113,6 +113,7 @@ $role = $user['id_role'];
                   </p>
                 </a>
               </li>
+
               <li class="nav-item">
                 <a href="/user/data_lokasi" class="nav-link">
                   <i class="fas fa-map nav-icon"></i>
@@ -122,12 +123,11 @@ $role = $user['id_role'];
                 </a>
               </li>
             <?php endif; ?>
-
             <li class="nav-header">TRANSAKSI</li>
             <div class="brand-link" style="margin-top: -20px;"></div>
             <li class="nav-item">
 
-              <a href="/user/survey" class="nav-link">
+              <a href="/user/transaksi" class="nav-link">
                 <i class="fas fa-calendar nav-icon"></i>
                 <p>
                   Data Transaksi
