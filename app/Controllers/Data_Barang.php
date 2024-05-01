@@ -11,6 +11,18 @@ class Data_Barang extends BaseController
     $this->model = new \App\Models\ModelBarang();
     $this->data = ['status' => false, 'invalidId' => '', 'invalidNama' => ''];
   }
+
+  public function index(): string
+  {
+    $MBarang = new $this->model;
+    $katakunci = $this->request->getVar('katakunci');
+    $pencarian = $katakunci ? $MBarang->cari($katakunci) : $MBarang;
+    $barang = $pencarian->orderBy('id_barang', 'ASC')->paginate(env('PER_PAGE'));
+    $pager = $pencarian->pager;
+    $nomor = ($this->request->getVar('page') ?? 1) == 1 ? 1 : (($this->request->getVar('page') - 1) * env('PER_PAGE') + 1);
+    return view('User/data_barang', ['barang' => $barang, 'pager' => $pager, 'nomor' => $nomor, 'katakunci' => $katakunci]);
+  }
+
   public function simpan(): string
   {
     $id_barang = $this->request->getPost('id_barang');

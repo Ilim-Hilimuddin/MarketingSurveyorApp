@@ -4,6 +4,11 @@ namespace App\Controllers;
 
 class Transaksi extends BaseController
 {
+
+  public function __construct()
+  {
+    $this->model = new \App\Models\ModelTransaksi();
+  }
   public function index()
   {
     $keyword = $this->request->getGet('keyword');
@@ -49,7 +54,7 @@ class Transaksi extends BaseController
 
   public function simpan()
   {
-    $MTransaksi = new \App\Models\ModelTransaksi();
+    $MTransaksi = $this->model;
     $data = [
       'id_transaksi' => $this->request->getPost('idTransaksi'),
       'id_user' => $this->request->getPost('idSales'),
@@ -71,6 +76,38 @@ class Transaksi extends BaseController
     return json_encode($response);
   }
 
+  public function edit()
+  {
+    $MTransaksi = $this->model;
+    $lastId = $this->request->getPost('lastId');
+    $data = [
+      'id_transaksi' => $this->request->getPost('idTransaksi'),
+      'id_user' => $this->request->getPost('idSales'),
+      'id_barang' => $this->request->getPost('idBarang'),
+      'id_lokasi' => $this->request->getPost('idLokasi'),
+      'tgl_transaksi' => $this->request->getPost('tglTransaksi'),
+      'jumlah' => $this->request->getPost('jumlah'),
+      'isRepeatOrder' => $this->request->getPost('repeat'),
+      'hasil_transaksi' => $this->request->getPost('catatan'),
+    ];
+    if (($data['id_transaksi'] != $lastId) && $MTransaksi->where('id_transaksi', $data['id_transaksi'])->first()) {
+      $response['status'] = false;
+      $response['msg'] = "Data transaksi sudah ada";
+    } else {
+      $MTransaksi->where('id_transaksi', $lastId)->set($data)->update();
+      $response['status'] = true;
+    }
+    return json_encode($response);
+  }
+
+  public function hapus()
+  {
+    $MTransaksi = $this->model;
+    $id = $this->request->getPost('id');
+    $MTransaksi->where('id_transaksi', $id)->delete();
+    return json_encode(['status' => true]);
+  }
+
   public function detail()
   {
     $data = $this->getDataById($this->request->getPost('id'));
@@ -84,6 +121,12 @@ class Transaksi extends BaseController
     // $mpdf = new \Mpdf\Mpdf();
     // $mpdf->WriteHTML(view('User/cetak', $data));
     // $mpdf->Output();
+  }
+
+  public function cari()
+  {
+    $id = $this->getDataById($this->request->getPost('id'));
+    return json_encode($id);
   }
 
   public function getDataById($id)
