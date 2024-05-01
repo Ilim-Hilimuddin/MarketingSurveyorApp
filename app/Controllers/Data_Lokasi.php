@@ -11,6 +11,18 @@ class Data_Lokasi extends BaseController
     $this->model = new \App\Models\ModelLokasi();
     $this->data = ['status' => false, 'invalidId' => '', 'invalidNama' => ''];
   }
+
+  public function index(): string
+  {
+    $MLokasi = new $this->model;
+    $katakunci = $this->request->getVar('katakunci');
+    $pencarian = $katakunci ? $MLokasi->cari($katakunci) : $MLokasi;
+    $lokasi = $pencarian->orderBy('id_lokasi', 'ASC')->paginate(env('PER_PAGE'));
+    $pager = $pencarian->pager;
+    $nomor = ($this->request->getVar('page') ?? 1) == 1 ? 1 : (($this->request->getVar('page') - 1) * env('PER_PAGE') + 1);
+    return view('User/data_lokasi', ['lokasi' => $lokasi, 'pager' => $pager, 'nomor' => $nomor, 'katakunci' => $katakunci]);
+  }
+
   public function simpan(): string
   {
     $id_lokasi = $this->request->getPost('id_lokasi');
