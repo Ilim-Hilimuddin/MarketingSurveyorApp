@@ -26,9 +26,15 @@ $role = $user['id_role'];
     </div>
     <!-- MODAL -->
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target="#tambahData" id="ModalTambahBtn">
-      + Tambah Data Survey
-    </button>
+    <div class="col-md-12 mb-2">
+      <button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target="#tambahData" id="ModalTambahBtn">
+        + Tambah Data Survey
+      </button>
+      <div class="float-right">
+        <a href="/user/transaksi/export_pdf" class="btn btn-primary mb-2" target="_blank"><i class="fas fa-file-pdf mr-2"></i>Download PDF</a>
+        <a href="/user/transaksi/export_excel" class="btn btn-primary mb-2" target="_blank"><i class="fas fa-file-excel mr-2"></i>Download Excel</a>
+      </div>
+    </div>
 
     <!-- Modal Tambah Data-->
     <div class="modal fade" id="tambahData" tabindex="-1" aria-labelledby="tambahDataLabel" aria-hidden="true">

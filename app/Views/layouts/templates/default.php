@@ -2,6 +2,7 @@
 // Simpan data dari session
 $user = session()->get('user');
 $role = $user['id_role'];
+$id = $user['id_user'];
 ?>
 
 <!DOCTYPE html>
@@ -18,6 +19,7 @@ $role = $user['id_role'];
   <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="/dist/css/adminlte.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -138,21 +140,21 @@ $role = $user['id_role'];
               <a href="#" class="nav-link">
                 <i class="fas fa-file-export nav-icon"></i>
                 <p>
-                  Laporan
+                  Download Laporan
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="../layout/top-nav.html" class="nav-link">
-                    <i class="fas fa-file-excel nav-icon"></i>
-                    <p>Cetak Data Transaksi</p>
+                  <a href="/user/transaksi/export_pdf" class="nav-link">
+                    <i class="fas fa-file-pdf nav-icon ml-4"></i>
+                    <p>Download PDf</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="../layout/top-nav.html" class="nav-link">
-                    <i class="fas fa-file-pdf nav-icon"></i>
-                    <p>Cetak Bukti Transaksi</p>
+                  <a href="/user/transaksi/export_excel" class="nav-link">
+                    <i class="fas fa-file-excel nav-icon ml-4"></i>
+                    <p>Download Excel</p>
                   </a>
                 </li>
               </ul>
@@ -169,20 +171,20 @@ $role = $user['id_role'];
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="/user/profile" class="nav-link">
-                    <i class="fas fa-user-tag nav-icon"></i>
+                  <a href="/user/profile?id=<?= $id ?>" class="nav-link">
+                    <i class="fas fa-user-tag nav-icon ml-4"></i>
                     <p>Lihat Profile</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="/user/edit_profile" class="nav-link">
-                    <i class="fas fa-user-edit nav-icon"></i>
+                    <i class="fas fa-user-edit nav-icon ml-4"></i>
                     <p>Edit Profile</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="/user/info" class="nav-link">
-                    <i class="fas fa-info-circle nav-icon"></i>
+                    <i class="fas fa-info-circle nav-icon ml-4"></i>
                     <p>Info</p>
                   </a>
                 </li>

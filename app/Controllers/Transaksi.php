@@ -51,7 +51,6 @@ class Transaksi extends BaseController
     return view('User/survey', $data);
   }
 
-
   public function simpan()
   {
     $MTransaksi = $this->model;
@@ -112,15 +111,6 @@ class Transaksi extends BaseController
   {
     $data = $this->getDataById($this->request->getPost('id'));
     return view('User/detail_transaksi', $data);
-  }
-
-  public function cetakToPDF()
-  {
-    $data = $this->getDataById($this->request->getPost('id'));
-
-    // $mpdf = new \Mpdf\Mpdf();
-    // $mpdf->WriteHTML(view('User/cetak', $data));
-    // $mpdf->Output();
   }
 
   public function cari()
