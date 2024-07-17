@@ -144,12 +144,15 @@
 <script>
   var last_id = ''
   var last_nama = ''
+
+
   $('#id_lokasi').on('change', function() {
     var id_lokasi = $('#id_lokasi').val();
     // Memeriksa apakah input memenuhi format yang diharapkan ("LOK-xxx")
     if (!(/^LOK-\d{3}$/.test(id_lokasi))) {
       $('#id_lokasi').addClass('is-invalid');
       $('#invalidIdlokasi').text('ID lokasi harus berupa LOK-xxx');
+
     } else {
       $('#id_lokasi').removeClass('is-invalid');
       $('#invalidIdlokasi').text('');
@@ -177,7 +180,7 @@
     $id_lokasi = $('#id_lokasi').val();
     $nama_lokasi = $('#nama_lokasi').val();
     $.ajax({
-      url: '<?= site_url("/user/data_lokasi/simpan"); ?>',
+      url: '/user/data_lokasi/simpan',
       type: 'POST',
       data: {
         'id_lokasi': $id_lokasi,
@@ -221,7 +224,7 @@
     var id = button.val();
     var modal = $(this);
     $.ajax({
-      url: '<?= site_url("/user/data_lokasi/cari"); ?>',
+      url: '/user/data_lokasi/cari',
       type: 'POST',
       data: {
         'id': id
@@ -240,7 +243,7 @@
     $idEdit = $('#idEdit').val();
     $namaEdit = $('#namaEdit').val();
     $.ajax({
-      url: '<?= site_url("/user/data_lokasi/edit"); ?>',
+      url: '/user/data_lokasi/edit',
       type: 'POST',
       data: {
         'id': $idEdit,
@@ -294,7 +297,7 @@
     }).then((result) => {
       if (result.isConfirmed) {
         $.ajax({
-          url: '<?= site_url("/user/data_lokasi/hapus"); ?>',
+          url: '/user/data_lokasi/hapus',
           type: 'POST',
           data: {
             'id': id

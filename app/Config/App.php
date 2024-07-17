@@ -17,6 +17,8 @@ class App extends BaseConfig
      * E.g., http://example.com/
      */
     public string $baseURL = 'http://localhost:8080/';
+    // public string $baseURL = 'https://large-sterling-panda.ngrok-free.app/';
+    // public string $baseURL = 'http://ilim.my.id/';
 
     /**
      * Allowed Hostnames in the Site URL other than the hostname in the baseURL.

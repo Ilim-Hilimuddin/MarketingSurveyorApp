@@ -113,7 +113,7 @@ $this->section('content');
         </div>
         <div class="float-right">
           <a href="/user/transaksi" class="btn btn-primary">Kembali</a>
-          <button onclick="cetak()" class="btn btn-success">Cetak</button>
+          <a href="/user/transaksi/export_pdf?id=<?= $transaksi['id_transaksi']; ?>" class="btn btn-success"><i class="fas fa-print mr-2"></i> Download PDF</a>
         </div>
       </div>
     </div>
