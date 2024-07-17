@@ -17,7 +17,8 @@ $routes->group('user', function ($routes) {
     $routes->add('edit', 'Transaksi::edit');
     $routes->add('hapus', 'Transaksi::hapus');
     $routes->add('detail', 'Transaksi::detail');
-    $routes->add('cetak', 'Transaksi::cetakToPDF');
+    $routes->add('export_pdf', 'Export::export_pdf');
+    $routes->add('export_excel', 'Export::export_excel');
   });
   $routes->group('data_barang', function ($routes) {
     $routes->get('', 'Data_Barang::index');
@@ -28,6 +29,11 @@ $routes->group('user', function ($routes) {
   });
   $routes->group('data_pengguna', function ($routes) {
     $routes->get('', 'Data_Pengguna::index');
+    $routes->add('simpan', 'Data_Pengguna::simpan');
+    $routes->add('cari', 'Data_Pengguna::cari');
+    $routes->add('edit', 'Data_Pengguna::edit');
+    $routes->add('hapus', 'Data_Pengguna::hapus');
+    $routes->add('detail', 'Data_Pengguna::detail');
   });
   $routes->group('data_lokasi', function ($routes) {
     $routes->get('', 'Data_Lokasi::index');

@@ -169,10 +169,14 @@
 
 
   $('#simpan').on('click', function() {
+    if (!validateIdInput($('#id_barang'), $('#invalidIdBarang'))) {
+      alert('ID Barang harus berupa BRG-xxx');
+      return false;
+    }
     $id_barang = $('#id_barang').val();
     $nama_barang = $('#nama_barang').val();
     $.ajax({
-      url: '<?= site_url("/user/data_barang/simpan"); ?>',
+      url: '/user/data_barang/simpan',
       type: 'POST',
       data: {
         'id_barang': $id_barang,
@@ -230,7 +234,7 @@
     var id = button.val();
     var modal = $(this);
     $.ajax({
-      url: '<?= site_url("/user/data_barang/cari"); ?>',
+      url: '/user/data_barang/cari',
       type: 'POST',
       data: {
         'id': id
@@ -246,10 +250,13 @@
   });
 
   $('#edit').on('click', function() {
+    if (!validateIdInput($('#idEdit'), $('#invalidEditId'))) {
+      return false;
+    }
     $idEdit = $('#idEdit').val();
     $namaEdit = $('#namaEdit').val();
     $.ajax({
-      url: '<?= site_url("/user/data_barang/edit"); ?>',
+      url: '/user/data_barang/edit',
       type: 'POST',
       data: {
         'id': $idEdit,
@@ -303,7 +310,7 @@
     }).then((result) => {
       if (result.isConfirmed) {
         $.ajax({
-          url: '<?= site_url("/user/data_barang/hapus"); ?>',
+          url: '/user/data_barang/hapus',
           type: 'POST',
           data: {
             'id': id

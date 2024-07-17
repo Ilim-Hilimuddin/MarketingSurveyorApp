@@ -1,22 +1,37 @@
-<?= $this->extend('layouts/templates/default'); ?>
+<?php
+// dd($transaksi);
+$this->extend('layouts/templates/default');
+$this->section('content');
+?>
+<style>
+  tr {
+    padding: 10px;
+    font-size: 1.2rem;
+  }
 
-<?= $this->section('content'); ?>
+  .line {
+    width: 100%;
+    height: 1px;
+    background-color: #000000;
+    margin: 0;
+  }
+</style>
 <section class="content-header">
   <div class="container-fluid">
     <div class="row mb-5">
       <div class="col-sm-6">
-        <h1>Profile</h1>
+        <h1>Detail Pengguna</h1>
       </div>
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="/user">Home</a></li>
-          <li class="breadcrumb-item active">Profile</li>
+          <li class="breadcrumb-item active">Detail Pengguna</li>
         </ol>
       </div>
     </div>
     <div class="card">
       <div class="card-header bg-gradient-secondary">
-        <h3>Profile Pengguna</h3>
+        <h3>Detail Pengguna</h3>
       </div>
       <div class="card-body" style="background-color: #ffffffc2;">
         <div class="container-fluid">
@@ -25,7 +40,7 @@
             <div class="col-md-12">
               <div class="card mb-3">
 
-                <h4 class="font-weight-bold card-footer">Detail Profile</h4>
+                <h4 class="font-weight-bold card-footer">Detail Karyawan</h4>
 
                 <div class="row no-gutters p-3">
                   <div class="col-md-3 text-center">
@@ -78,20 +93,39 @@
         <hr class="border-dark mb-3">
       </div>
     </div>
-  </div>
 </section>
-
+<?= $this->include('layouts/templates/script.php') ?>
 <script>
-  function showEditForm() {
-    document.getElementById('profile-info').style.display = 'none';
-    document.getElementById('edit-profile-form').style.display = 'block';
-  }
+  document.addEventListener('DOMContentLoaded', function() {
+    // Fungsi untuk memformat tanggal
+    function formatTanggal(tanggal) {
+      const namaHari = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+      const namaBulan = [
+        'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli',
+        'Agustus', 'September', 'Oktober', 'November', 'Desember'
+      ];
 
-  function showProfileInfo() {
-    document.getElementById('profile-info').style.display = 'block';
-    document.getElementById('edit-profile-form').style.display = 'none';
-  }
+      const dateObj = new Date(tanggal);
+      const hari = namaHari[dateObj.getDay()];
+      const tgl = dateObj.getDate();
+      const bulan = namaBulan[dateObj.getMonth()];
+      const tahun = dateObj.getFullYear();
+
+      return `${hari}, ${tgl} ${bulan} ${tahun}`;
+    }
+
+    // Ambil elemen tanggal lahir
+    const tglLahirElem = document.getElementById('tglLahir');
+
+    // Ambil nilai tanggal lahir
+    const tglLahir = tglLahirElem.textContent;
+
+    // Format tanggal lahir
+    const formattedTanggal = formatTanggal(tglLahir);
+
+    // Tampilkan tanggal lahir yang sudah diformat
+    tglLahirElem.textContent = formattedTanggal;
+  });
 </script>
 
-<?= $this->include('layouts/templates/script.php') ?>
 <?= $this->endSection(); ?>
